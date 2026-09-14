@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PIXELARC | PORTFOLIO DETAIL</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="portfolio">
+
+<header id="site-header" class="site-header"></header>
+
+<!--
+  이 페이지 하나로 모든 포트폴리오 상세 화면을 자동으로 보여줍니다.
+  URL 뒤에 ?id=포트폴리오아이디 를 붙여서 접속하면
+  js/portfolio-data.js 에 등록된 내용에 맞춰
+  가로형(16:9)/세로형(숏폼) 레이아웃이 자동으로 결정됩니다.
+  예) portfolio-detail.html?id=daegu-tiktaka
+-->
+<div id="detail-container" class="page-body"><!-- JS로 자동 렌더링 --></div>
+
+<!-- ================= CTA (공통) ================= -->
+<div class="cta-slot"></div>
+
+<footer id="site-footer" class="site-footer"></footer>
+
+<script src="js/common.js"></script>
+<script src="js/portfolio-data.js"></script>
+<script src="js/portfolio.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', renderPortfolioDetail);
+</script>
+</body>
+</html>
