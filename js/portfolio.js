@@ -121,7 +121,7 @@ function setPfFilter(category, btnEl) {
 function renderFeaturedPortfolio() {
   const wrap = document.getElementById('featured-pf-wrap');
   if (!wrap) return;
-  const item = getSortedPortfolio()[0];
+  const item = getFeaturedPortfolio();
   if (!item) return;
   wrap.innerHTML = `
     <div class="featured-pf-img">
@@ -134,6 +134,23 @@ function renderFeaturedPortfolio() {
       <a href="portfolio-detail.html?id=${item.id}" class="btn btn-outline">프로젝트 자세히 보기 →</a>
     </div>
   `;
+}
+
+// 인스타그램 embed 코드인지 확인
+function isInstagramEmbed(html) {
+  return !!html && html.includes('instagram.com');
+}
+
+// 인스타그램 embed 스크립트를 불러와서 blockquote를 실제 영상으로 변환
+function loadInstagramEmbed() {
+  if (window.instgrm) {
+    window.instgrm.Embeds.process();
+  } else {
+    const script = document.createElement('script');
+    script.src = 'https://www.instagram.com/embed.js';
+    script.async = true;
+    document.body.appendChild(script);
+  }
 }
 
 /* ---------------------------------------------------------------------
@@ -171,6 +188,9 @@ function renderPortfolioDetail() {
     </div>
   `;
 
+const isInstagram = isInstagramEmbed(item.videoEmbed);
+  const videoWrapClass = isInstagram ? 'video-embed video-embed-instagram' : 'video-embed';
+
   const videoHTML = item.videoEmbed
     ? item.videoEmbed
     : `<div class="img-placeholder">${item.layout === 'vertical' ? '인스타그램/유튜브 세로 영상 자리' : '유튜브 영상 자리 (16:9)'}</div>`;
@@ -183,7 +203,7 @@ function renderPortfolioDetail() {
     bodyHTML = `
       <div class="container detail-h-top">
         <div class="detail-h-media">
-          <div class="video-embed">${videoHTML}</div>
+          <div class="${videoWrapClass}">${videoHTML}</div>
         </div>
         <div class="detail-info">
           <div class="cat">${item.categoryLabel.toUpperCase()}</div>
@@ -217,7 +237,7 @@ function renderPortfolioDetail() {
       ${item.process ? `
       <div class="detail-block container">
         <div class="detail-block-head"><span class="n">02</span><span class="label">PROCESS</span></div>
-        <h2 style="font-size:26px;font-weight:800;">기획부터 편집까지,<br>하나의 흐름으로.</h2>
+        <h2 style="font-size:26px;font-weight:800;">기획부터 납품까지,<br>하나의 흐름으로.</h2>
         <div class="process-timeline">
           ${item.process.map(p => `
             <div class="pt-item">
@@ -234,7 +254,7 @@ function renderPortfolioDetail() {
     bodyHTML = `
       <div class="container detail-v-top">
         <div class="detail-v-media">
-          <div class="video-embed">${videoHTML}</div>
+          <div class="${videoWrapClass}">${videoHTML}</div>
         </div>
         <div class="detail-info">
           <div class="cat">${item.categoryLabel.toUpperCase()}</div>
@@ -292,4 +312,7 @@ function renderPortfolioDetail() {
   `;
 
   container.innerHTML = topbarHTML + bodyHTML + relatedHTML;
+
+  // 인스타그램 embed가 포함된 경우, 실제 영상으로 변환되도록 스크립트 실행
+  if (isInstagram) loadInstagramEmbed();
 }

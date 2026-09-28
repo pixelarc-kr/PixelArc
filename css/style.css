@@ -265,6 +265,11 @@ input, textarea{ font-family:inherit; }
 .page-body{ padding-top: var(--header-h); }
 @media(max-width:900px){ .page-body{ padding-top: var(--header-h-mobile); } }
 
+.desc-right{ text-align:right; margin-top:0; }
+@media(max-width:900px){
+  .desc-right{ text-align:left; }
+}
+
 /* =========================================================
    히어로 공통(각 서브페이지 상단)
    ========================================================= */
@@ -373,9 +378,9 @@ input, textarea{ font-family:inherit; }
 .cta-right{ display:flex; flex-direction:column; align-items:flex-end; gap:20px; }
 .cta-right p{ color:var(--c-gray-400); font-size:14px; text-align:right; line-height:1.8; }
 @media(max-width:760px){
-  .cta-inner{ flex-direction:column; align-items:flex-start; text-align:left; padding:60px 0; min-height:auto; }
-  .cta-right{ align-items:flex-start; }
-  .cta-right p{ text-align:left; }
+  .cta-inner{ flex-direction:column; align-items:center; text-align:center; padding:60px 0; min-height:auto; }
+  .cta-right{ align-items:center; }
+  .cta-right p{ text-align:center; }
   .cta-title{ font-size:26px; }
 }
 
@@ -467,7 +472,8 @@ input, textarea{ font-family:inherit; }
 .scroll-down::before{ content:''; width:1px; height:34px; background:var(--c-gray-500); }
 @media(max-width:900px){
   .hero-content h1{ font-size:32px; }
-  .hero{ min-height:560px; }
+  .hero{ min-height:680px; }
+  .hero-btns{ margin-bottom:20px; }
 }
 
 .about-preview{
@@ -550,6 +556,7 @@ input, textarea{ font-family:inherit; }
 .split-section .img-placeholder{ aspect-ratio:4/3; }
 .split-side-labels{ text-align:right; font-size:11px; color:var(--c-gray-500); letter-spacing:.08em; line-height:2; }
 @media(max-width:900px){
+  .about-hero .container{ grid-template-columns:1fr; }
   .split-section{ grid-template-columns:1fr; gap:28px; }
   .split-side-labels{ display:none; }
 }
@@ -680,7 +687,7 @@ input, textarea{ font-family:inherit; }
 @media(max-width:900px){ .detail-h-top{ grid-template-columns:1fr; gap:32px; } }
 
 .detail-v-top{ display:grid; grid-template-columns: .55fr 1fr; gap:56px; padding-bottom:70px; align-items:start; }
-.detail-v-media{ position:relative; max-width:340px; margin:0 auto; }
+.detail-v-media{ position:relative; width:100%; max-width:340px; margin:0 auto; }
 .detail-v-media .video-embed{ position:relative; width:100%; aspect-ratio:9/16; background:#000; border-radius:16px; overflow:hidden; }
 .detail-v-media .video-embed iframe, .detail-v-media .video-embed .img-placeholder{ position:absolute; inset:0; width:100%; height:100%; border:0; border-radius:0; }
 @media(max-width:900px){ .detail-v-top{ grid-template-columns:1fr; gap:32px; } .detail-v-media{ max-width:280px; } }
@@ -727,6 +734,25 @@ input, textarea{ font-family:inherit; }
 .related-title{ position:absolute; left:14px; right:14px; bottom:14px; font-size:14px; font-weight:700; z-index:2; }
 @media(max-width:900px){ .related-grid{ grid-template-columns:1fr 1fr; } }
 @media(max-width:480px){ .related-grid{ grid-template-columns:1fr; } }
+
+/* 인스타그램 embed 전용: iframe은 내용 높이를 자동으로 못 읽어오기 때문에
+   충분히 넉넉한 고정 높이를 줘서 잘리지 않게 합니다. */
+.video-embed-instagram{
+  position:static !important;
+  width:100% !important;
+  aspect-ratio:auto !important;
+  height:auto !important;
+  background:transparent !important;
+  border-radius:0 !important;
+  overflow:visible !important;
+}
+.video-embed-instagram iframe{
+  position:static !important;
+  width:100% !important;
+  height:315px !important;
+  max-width:100%;
+  border:0;
+}
 
 /* =========================================================
    콘택트 페이지

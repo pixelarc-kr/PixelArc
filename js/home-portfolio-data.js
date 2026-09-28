@@ -22,27 +22,27 @@
 
 const homePortfolioPreview = [
   {
-    thumbnail: '',
-    categoryLabel: '유튜브 콘텐츠',
+    thumbnail: 'images/home/main1.jpg',
+    categoryLabel: '유튜브 웹예능',
     title: '대구보건대학교 티키타카',
     link: 'portfolio-detail.html?id=daegu-tiktaka'
   },
   {
-    thumbnail: '',
-    categoryLabel: '숏폼 콘텐츠',
-    title: '인제 GT 마스터즈 3라운드 DRIFT TRACK DAY',
-    link: 'portfolio-detail.html?id=injegt-drift'
+    thumbnail: 'images/home/main2.jpg',
+    categoryLabel: '축제 홍보영상',
+    title: '2026 경산만화축제 홍보영상',
+    link: 'portfolio-detail.html?id=gyeongsan-festival'
   },
   {
-    thumbnail: '',
-    categoryLabel: '기업 홍보영상',
-    title: '식당 홍보영상',
-    link: 'portfolio-detail.html?id=restaurant-promo'
+    thumbnail: 'images/home/main3.jpg',
+    categoryLabel: '축제 홍보영상',
+    title: '2026 점촌점빵길 빵축제',
+    link: 'portfolio-detail.html?id=jeomchon-street'
   },
   {
-    thumbnail: '',
-    categoryLabel: '숏폼 콘텐츠',
-    title: '우송대학교 홍보 숏폼',
-    link: 'portfolio-detail.html?id=woosong-shorts'
+    thumbnail: 'images/home/main4.jpg',
+    categoryLabel: 'AI홍보 숏폼',
+    title: '점촌점빵길 빵축제 AI 숏폼',
+    link: 'portfolio-detail.html?id=jeomchon-street-shortform'
   }
 ];
