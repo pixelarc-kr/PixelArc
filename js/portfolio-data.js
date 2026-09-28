@@ -38,98 +38,12 @@
 
 const portfolioList = [
   {
-    id: 'daegu-tiktaka',
-    title: '대구보건대학교 티키타카',
-    subtitle: '우리 지금, 솔직하게 이야기해볼까?',
-    date: '2025-07-15',
-    category: 'youtube',
-    categoryLabel: '유튜브 콘텐츠',
-    layout: 'horizontal',
-    thumbnail: '',
-    videoEmbed: '',
-    tags: ['#유튜브콘텐츠', '#웹예능', '#대학홍보', '#청춘'],
-    client: '대구보건대학교',
-    typeLabel: 'YouTube Contents',
-    period: '2025.05 - 2025.07',
-    role: '기획 / 촬영 / 편집',
-    description: '고등학생들의 입시 고민을 유쾌한 콘텐츠로 풀어낸 대구보건대학교의 유튜브 웹예능 콘텐츠입니다. 청춘들의 솔직한 이야기와 유쾌한 케미를 통해 대학의 매력을 자연스럽게 전달했습니다.',
-    story: {
-      title: '청춘의 고민이 콘텐츠가 되는 순간.',
-      text: '입시와 진로라는 진지한 주제를, 부담 없이 즐길 수 있는 웹예능 형식으로 풀어내 고등학생들이 공감하고 몰입할 수 있는 콘텐츠를 만들었습니다.',
-      points: [
-        { icon: '👥', title: '타겟에 맞춘 기획', desc: '고등학생의 시선에 맞춘 주제와 구성으로 자연스러운 공감대 형성' },
-        { icon: '▶', title: '예능형 포맷', desc: '토크와 게임을 결합한 웹예능 형식으로 재미와 정보의 균형을 구현' },
-        { icon: '📈', title: '브랜드 이미지 강화', desc: '대구보건대학교의 특성과 장점을 자연스럽게 녹여 친근한 이미지 구축' }
-      ]
-    },
-    process: [
-      { step: '01', title: '기획', items: ['콘셉트 기획', '시나리오 구성', '출연진 및 구성안 협의'] },
-      { step: '02', title: '촬영', items: ['4대 카메라 활용', '현장 디렉팅', '안정적인 촬영 운영'] },
-      { step: '03', title: '편집', items: ['컷 편집 및 자막 작업', '예능 효과 및 사운드', '컬러 보정 및 최종 편집'] },
-      { step: '04', title: '납품', items: ['본편 5화', '숏츠 콘텐츠', '썸네일 및 업로드용 파일'] }
-    ]
-  },
-  {
-    id: 'wsu-major',
-    title: '우송대학교 학과 소개',
-    subtitle: '이런 학과도 있다고?',
-    date: '2025-03-10',
-    category: 'shortform',
-    categoryLabel: '숏폼 콘텐츠',
-    layout: 'vertical',
-    thumbnail: '',
-    videoEmbed: '',
-    tags: ['#숏폼', '#대학교', '#학과소개', '#브랜드콘텐츠'],
-    client: '우송대학교',
-    typeLabel: 'Short-form (Vertical Video)',
-    period: '2025.03',
-    role: '기획 / 촬영 / 편집',
-    description: '우송대학교의 다양한 학과를 30초 내외의 숏폼 콘텐츠로 소개하는 프로젝트입니다. 각 학과의 특징을 직관적이고 트렌디한 영상으로 구성하여, 고등학생과 수험생들에게 친근하게 다가갈 수 있도록 제작했습니다.',
-    message: {
-      title: '짧은 시간, 더 강한 메시지.',
-      text: '우송대학교의 다양한 학과를 30초 내의 숏폼 콘텐츠로 소개하는 프로젝트입니다. 각 학과의 특징을 직관적이고 트렌디한 영상으로 구성하여, 고등학생과 수험생들에게 친근하게 다가갈 수 있도록 제작했습니다.',
-      sideLabels: ['IDEA', 'TREND', 'SPEED', 'IMPACT']
-    },
-    keypoints: [
-      { icon: '👤', title: '트렌디한 구성', desc: '숏폼 플랫폼에 최적화된 빠른 전개와 몰입감 있는 연출' },
-      { icon: '🎯', title: '학과별 차별화', desc: '각 학과의 특징을 짧지만 명확하게 전달하는 스토리텔링' },
-      { icon: '📣', title: '브랜드 이미지 강화', desc: '젊고 역동적인 영상으로 대학교의 매력을 효과적으로 표현' }
-    ]
-  },
-  {
-    id: 'injegt-drift',
-    title: '인제 GT 마스터즈 3라운드',
-    subtitle: 'DRIFT TRACK DAY',
-    date: '2025-08-02',
-    category: 'shortform',
-    categoryLabel: '숏폼 콘텐츠',
-    layout: 'vertical',
-    thumbnail: '',
-    videoEmbed: '',
-    tags: ['#숏폼', '#모터스포츠', '#브랜드필름'],
-    client: '인제스피디움',
-    typeLabel: 'Short-form (Vertical Video)',
-    period: '2025.08',
-    role: '촬영 / 편집',
-    description: '인제 GT 마스터즈 3라운드 드리프트 트랙데이 현장을 생동감 있게 담은 숏폼 콘텐츠입니다.',
-    message: {
-      title: '속도가 만든 짧고 강렬한 순간.',
-      text: '드리프트 트랙 데이의 긴장감과 속도감을 짧은 호흡의 영상으로 압축해, 보는 이의 시선을 단번에 사로잡는 콘텐츠로 제작했습니다.',
-      sideLabels: ['SPEED', 'IMPACT', 'ACTION', 'THRILL']
-    },
-    keypoints: [
-      { icon: '🏁', title: '현장감 있는 촬영', desc: '다양한 앵글의 카메라로 트랙 위 긴장감을 생생하게 포착' },
-      { icon: '⚡', title: '속도감 있는 편집', desc: '빠른 컷 전환으로 몰입감과 스피드감을 극대화' },
-      { icon: '🎬', title: '브랜드 필름 톤 유지', desc: '모터스포츠 브랜드의 톤앤매너에 맞춘 색감과 사운드' }
-    ]
-  },
-  {
     id: 'restaurant-promo',
-    title: '식당 홍보영상',
+    title: '소보양탕 사천점 홍보영상',
     subtitle: '',
-    date: '2025-02-20',
+    date: '2026-09-29',
     category: 'promo',
-    categoryLabel: '기업 홍보영상',
+    categoryLabel: '식당 홍보영상',
     layout: 'horizontal',
     thumbnail: '',
     videoEmbed: '',
@@ -156,39 +70,71 @@ const portfolioList = [
     ]
   },
   {
-    id: 'woosong-shorts',
-    title: '우송대학교 홍보 숏폼',
+    id: 'gyeongsan-festival',
+    title: '2026 경산만화축제 홍보영상',
     subtitle: '',
-    date: '2025-01-15',
+    date: '2026-09-22', 
     category: 'event',
-    categoryLabel: '행사·스케치',
-    layout: 'vertical',
+    categoryLabel: '축제 홍보영상',
+    layout: 'horizontal',
     thumbnail: '',
-    videoEmbed: '',
-    tags: ['#행사스케치', '#대학교', '#숏폼'],
-    client: '우송대학교',
-    typeLabel: 'Event Sketch',
-    period: '2025.01',
-    role: '촬영 / 편집',
-    description: '우송대학교 행사 현장을 생생하게 담은 스케치 영상입니다.',
+    videoEmbed: '<iframe src="https://www.instagram.com/reel/DdjV7WGqJN7/?utm_source=ig_embed&amp;utm_campaign=loading" allowfullscreen></iframe>',
+    tags: ['#축제홍보', '#브랜드필름', '#요식업'],
+    client: '비공개',
+    typeLabel: 'Event Video',
+    period: '2025.02',
+    role: '기획 / 촬영 / 편집',
+    description: '지역 명소의 매력을 감성적으로 담아낸 콘텐츠입니다.',
     message: {
-      title: '현장의 열기를 그대로.',
-      text: '행사 당일의 분위기와 참가자들의 생생한 반응을 놓치지 않고 담아낸 스케치 콘텐츠입니다.',
-      sideLabels: ['LIVE', 'MOMENT', 'ENERGY', 'RECAP']
+      title: '거리의 분위기를 담은 짧은 여행.',
+      text: '점촌정방길의 야경과 분위기를 짧은 영상 안에 감성적으로 담아냈습니다.',
+      sideLabels: ['MOOD', 'NIGHT', 'LOCAL', 'CALM']
     },
     keypoints: [
-      { icon: '🎪', title: '현장 밀착 촬영', desc: '다양한 각도에서 행사의 순간을 놓치지 않고 포착' },
-      { icon: '🔥', title: '생동감 있는 편집', desc: '빠른 템포의 편집으로 행사의 에너지를 그대로 전달' },
-      { icon: '📌', title: '핵심 장면 강조', desc: '가장 인상적인 순간을 중심으로 임팩트 있게 구성' }
+      { icon: '🌆', title: '감성적인 야간 촬영', desc: '조명과 분위기를 살린 야경 촬영 노하우 적용' },
+      { icon: '🎞', title: '잔잔한 편집 호흡', desc: '차분한 컷 전환으로 여유로운 분위기 연출' },
+      { icon: '📍', title: '지역 매력 발굴', desc: '알려지지 않은 지역의 매력 포인트를 새롭게 조명' }
     ]
   },
   {
-    id: 'jeomchon-street',
-    title: '점촌정방길',
+    id: 'daegu-tiktaka',
+    title: '대구보건대학교 티키타카',
+    subtitle: '예비 입시생을 위한 유튜브 웹예능 콘텐츠',
+    date: '2026-09-18',
+    category: 'youtube',
+    categoryLabel: '유튜브 콘텐츠',
+    layout: 'horizontal',
+    thumbnail: '',
+    videoEmbed: '<iframe src="https://www.youtube.com/embed/MxKNdK0ZUvU?si=GhIgY_PPmqyhCBpR" allowfullscreen></iframe>',
+    tags: ['#유튜브콘텐츠', '#웹예능', '#대학홍보', '#입시'],
+    client: '대구보건대학교',
+    typeLabel: 'YouTube Contents',
+    period: '2026.07 - 2026.09',
+    role: '기획 / 촬영 / 편집',
+    description: '예비 입시생들의 고민을 유쾌한 콘텐츠로 풀어낸 대구보건대학교의 유튜브 웹예능 콘텐츠입니다. 입시 선배들의 솔직한 이야기와 유쾌한 케미를 통해 대구보건대학교의 매력을 자연스럽게 전달했습니다.',
+    story: {
+      title: '입시의 고민이 콘텐츠가 되는 순간.',
+      text: '입시와 진로라는 진지한 주제를, 부담 없이 즐길 수 있는 웹예능 형식으로 풀어내 고등학생들이 공감하고 몰입할 수 있는 콘텐츠를 만들었습니다.',
+      points: [
+        { icon: '👥', title: '타겟에 맞춘 기획', desc: '입시생들의 시선에 맞춘 주제와 구성으로 자연스러운 공감대 형성' },
+        { icon: '▶', title: '예능형 포맷', desc: '토크와 게임을 결합한 웹예능 형식으로 재미와 정보의 균형을 구현' },
+        { icon: '📈', title: '브랜드 이미지 강화', desc: '대구보건대학교의 특성과 장점을 자연스럽게 녹여 친근한 이미지 구축' }
+      ]
+    },
+    process: [
+      { step: '01', title: '기획', items: ['콘셉트 기획', '시나리오 구성'] },
+      { step: '02', title: '촬영', items: ['3대 카메라 활용', '현장 디렉팅', '안정적인 촬영 운영'] },
+      { step: '03', title: '편집', items: ['컷 편집 및 자막 작업', '예능 효과 및 사운드', '컬러 보정 및 최종 편집'] },
+      { step: '04', title: '납품', items: ['본편 5화', '숏츠 콘텐츠', '썸네일 및 업로드용 파일'] }
+    ]
+  },
+  {
+    id: 'jeomchon-street-shortform',
+    title: '점촌점빵길 빵축제 AI 숏폼',
     subtitle: '',
-    date: '2024-12-05',
-    category: 'etc',
-    categoryLabel: '기타',
+    date: '2026-04-30',
+    category: 'shortform',
+    categoryLabel: 'AI 홍보 숏폼',
     layout: 'vertical',
     thumbnail: '',
     videoEmbed: '',
@@ -196,6 +142,33 @@ const portfolioList = [
     client: '비공개',
     typeLabel: 'Short-form (Vertical Video)',
     period: '2024.12',
+    role: '기획 / 촬영 / 편집',
+    description: '지역 명소의 매력을 감성적으로 담아낸 콘텐츠입니다.',
+    message: {
+      title: '거리의 분위기를 담은 짧은 여행.',
+      text: '점촌정방길의 야경과 분위기를 짧은 영상 안에 감성적으로 담아냈습니다.',
+      sideLabels: ['MOOD', 'NIGHT', 'LOCAL', 'CALM']
+    },
+    keypoints: [
+      { icon: '🌆', title: '감성적인 야간 촬영', desc: '조명과 분위기를 살린 야경 촬영 노하우 적용' },
+      { icon: '🎞', title: '잔잔한 편집 호흡', desc: '차분한 컷 전환으로 여유로운 분위기 연출' },
+      { icon: '📍', title: '지역 매력 발굴', desc: '알려지지 않은 지역의 매력 포인트를 새롭게 조명' }
+    ]
+  },
+  {
+    id: 'jeomchon-street',
+    title: '2026 점촌점빵길 빵축제',
+    subtitle: '',
+    date: '2026-04-10', 
+    category: 'event',
+    categoryLabel: '축제 홍보영상',
+    layout: 'horizontal',
+    thumbnail: '',
+    videoEmbed: '<iframe src="https://www.youtube.com/embed/8tyyjHFetZQ?si=xz5x9DceXOE_RJMD" allowfullscreen></iframe>',
+    tags: ['#축제홍보', '#브랜드필름', '#요식업'],
+    client: '비공개',
+    typeLabel: 'Event Video',
+    period: '2025.02',
     role: '기획 / 촬영 / 편집',
     description: '지역 명소의 매력을 감성적으로 담아낸 콘텐츠입니다.',
     message: {

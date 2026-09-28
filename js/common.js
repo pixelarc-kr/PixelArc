@@ -46,7 +46,7 @@ const FOOTER_HTML = `
     <div class="footer-info">
       <div><b>E</b><span>&nbsp;pixelarc.kr@gmail.com</span></div>
       <div><b>T</b><span>&nbsp;010-5790-2107</span></div>
-      <div><b>A</b><span>&nbsp;대전광역시 유성구 (상세주소 미기재)</span></div>
+      <div><b>A</b><span>&nbsp;대전광역시 유성구 복용로40번길 5-20</span></div>
     </div>
     <div class="footer-info">
       <div style="text-transform:uppercase;color:var(--c-gray-500);font-weight:700;font-size:11px;margin-bottom:8px;">Business Info</div>
