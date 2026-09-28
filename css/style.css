@@ -666,6 +666,15 @@ input, textarea{ font-family:inherit; }
   padding: calc(var(--header-h) + 28px) 0 20px;
   display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
 }
+@media(max-width:900px){
+  .detail-topbar{ padding-top:28px; }
+}
+@media(max-width:900px){
+  .detail-topbar{ padding-top:28px; padding-left:24px; padding-right:24px; }
+  .detail-topbar{ padding-top:28px; padding-left:24px; padding-right:24px; }
+  .detail-block, .v-message-section, .keypoints{ padding-left:24px; padding-right:24px; }
+}
+
 .back-link{ display:flex; align-items:center; gap:8px; font-size:14px; color:var(--c-gray-400); }
 .back-link:hover{ color:#fff; }
 .prevnext{ display:flex; gap:28px; }
@@ -692,7 +701,7 @@ input, textarea{ font-family:inherit; }
 .detail-v-media .video-embed iframe, .detail-v-media .video-embed .img-placeholder{ position:absolute; inset:0; width:100%; height:100%; border:0; border-radius:0; }
 @media(max-width:900px){ .detail-v-top{ grid-template-columns:1fr; gap:32px; } .detail-v-media{ max-width:280px; } }
 
-.detail-block{ padding:56px 0; border-top:1px solid rgba(255,255,255,.1); }
+.detail-block{ padding:56px 24px; border-top:1px solid rgba(255,255,255,.1); }
 .detail-block-head{ display:flex; align-items:center; gap:14px; margin-bottom:12px; }
 .detail-block-head .n{ font-size:13px; color:var(--c-accent); font-weight:800; }
 .detail-block-head span.label{ font-size:12px; letter-spacing:.1em; color:var(--c-gray-500); }
@@ -710,16 +719,23 @@ input, textarea{ font-family:inherit; }
 .pt-item h4{ font-size:15px; font-weight:800; margin-bottom:12px; }
 .pt-item ul li{ font-size:12.5px; color:var(--c-gray-400); margin-bottom:6px; padding-left:12px; position:relative; }
 .pt-item ul li::before{ content:'·'; position:absolute; left:0; }
-@media(max-width:760px){ .process-timeline{ grid-template-columns:1fr 1fr; } .process-timeline::before{ display:none; } }
-@media(max-width:480px){ .process-timeline{ grid-template-columns:1fr; } }
+@media(max-width:760px){
+  .process-timeline{ grid-template-columns:1fr; gap:28px; padding-left:20px; border-left:2px solid rgba(255,255,255,.15); }
+  .process-timeline::before{ display:none; }
+  .pt-item{ display:grid; grid-template-columns:20px 1fr; column-gap:16px; align-items:start; }
+  .pt-item .dot{ grid-column:1; grid-row:1/4; margin:4px 0 0; }
+  .pt-item .num{ grid-column:2; grid-row:1; }
+  .pt-item h4{ grid-column:2; grid-row:2; }
+  .pt-item ul{ grid-column:2; grid-row:3; }
+}
 
-.v-message-section{ display:grid; grid-template-columns:1fr 3fr .6fr; gap:32px; padding:56px 0; border-top:1px solid rgba(255,255,255,.1); }
+.v-message-section{ display:grid; grid-template-columns:1fr 3fr .6fr; gap:32px; padding:56px 24px; border-top:1px solid rgba(255,255,255,.1); }
 .v-message-section h2{ font-size:26px; font-weight:800; line-height:1.4; }
 .v-message-section p{ font-size:14px; color:var(--c-gray-400); line-height:1.8; }
 .v-message-side{ font-size:11px; color:var(--c-gray-500); letter-spacing:.08em; line-height:2.2; text-align:right; }
 @media(max-width:900px){ .v-message-section{ grid-template-columns:1fr; gap:16px; } .v-message-side{ display:none; } }
 
-.keypoints{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; padding:56px 0; border-top:1px solid rgba(255,255,255,.1); }
+.keypoints{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; padding:56px 24px; border-top:1px solid rgba(255,255,255,.1); }
 .keypoint .icon{ width:40px;height:40px;border:1px solid rgba(255,255,255,.3); border-radius:8px; display:flex;align-items:center;justify-content:center; margin-bottom:16px; }
 .keypoint h4{ font-size:16px; font-weight:800; margin-bottom:8px; }
 .keypoint p{ font-size:13px; color:var(--c-gray-400); line-height:1.7; }
@@ -733,7 +749,7 @@ input, textarea{ font-family:inherit; }
 .related-gradient{ position:absolute; left:0;right:0;bottom:0; height:60%; background:linear-gradient(to top, rgba(0,0,0,.85), transparent); }
 .related-title{ position:absolute; left:14px; right:14px; bottom:14px; font-size:14px; font-weight:700; z-index:2; }
 @media(max-width:900px){ .related-grid{ grid-template-columns:1fr 1fr; } }
-@media(max-width:480px){ .related-grid{ grid-template-columns:1fr; } }
+@media(max-width:480px){ .related-grid{ gap:12px; } }
 
 /* 인스타그램 embed 전용: iframe은 내용 높이를 자동으로 못 읽어오기 때문에
    충분히 넉넉한 고정 높이를 줘서 잘리지 않게 합니다. */

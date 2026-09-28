@@ -296,7 +296,7 @@ const isInstagram = isInstagramEmbed(item.videoEmbed);
   // 추천 영상 (랜덤 4개, 목록의 썸네일/제목 그대로 재사용)
   const related = getRandomPortfolio(item.id, 4);
   const relatedHTML = `
-    <div class="container" style="padding:56px 0 100px;border-top:1px solid rgba(255,255,255,.1);">
+    <div class="container" style="padding-top:56px;padding-bottom:100px;border-top:1px solid rgba(255,255,255,.1);">
       <div class="related-head">
         <div class="detail-block-head" style="margin:0;"><span class="n">${item.layout === 'horizontal' ? '03' : '03'}</span><span class="label">OTHER PROJECTS</span></div>
       </div>
