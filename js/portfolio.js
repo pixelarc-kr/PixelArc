@@ -74,6 +74,7 @@ let pfCurrentPage = 1;
 function renderPortfolioList() {
   const grid = document.getElementById('pf-grid');
   if (!grid) return;
+  hideEmptyPfFilters();
 
   let items = getSortedPortfolio();
   if (pfCurrentFilter !== 'all') {
@@ -90,6 +91,15 @@ function renderPortfolioList() {
     : `<p style="color:var(--c-gray-500);grid-column:1/-1;">등록된 포트폴리오가 없습니다.</p>`;
 
   renderPagination(totalPages);
+}
+
+// 등록된 작업물이 없는 카테고리 탭은 숨김 (작업물을 추가하면 자동으로 다시 보입니다)
+function hideEmptyPfFilters() {
+  document.querySelectorAll('.pf-filter button[data-filter]').forEach(btn => {
+    const cat = btn.dataset.filter;
+    if (cat === 'all') return;
+    btn.hidden = !portfolioList.some(p => p.category === cat);
+  });
 }
 
 function renderPagination(totalPages) {
@@ -197,37 +207,55 @@ const isInstagram = isInstagramEmbed(item.videoEmbed);
 
   const tagsHTML = item.tags.map(t => `<span>${t}</span>`).join('');
 
+  // 섹션 번호(01, 02, ...)를 실제로 보이는 섹션 순서대로 매김
+  let sectionNo = 0;
+  const nextNo = () => String(++sectionNo).padStart(2, '0');
+
+  const infoHTML = `
+    <div class="cat">${item.categoryLabel.toUpperCase()}</div>
+    <h1>${item.title}</h1>
+    <div class="subtitle">${item.subtitle || ''}</div>
+    <div class="desc">${item.description}</div>`;
+  const metaHTML = `
+    <div class="meta-table">
+      <div><b>CLIENT</b><span>${item.client}</span></div>
+      <div><b>TYPE</b><span>${item.typeLabel}</span></div>
+      <div><b>PERIOD</b><span>${item.period}</span></div>
+      <div><b>ROLE</b><span>${item.role}</span></div>
+    </div>
+    <div class="tag-list">${tagsHTML}</div>`;
+
+  // 스틸컷 갤러리 (stills 배열이 있을 때만) — 번호 순서를 위해 그릴 위치에서 호출
+  const stillsBlock = () => item.stills && item.stills.length ? `
+      <div class="detail-block container">
+        <div class="detail-block-head"><span class="n">${nextNo()}</span><span class="label">STILLS</span></div>
+        <div class="detail-stills">
+          ${item.stills.map((src, i) => `<img src="${src}" alt="${item.title} 장면 ${i + 1}" loading="lazy">`).join('')}
+        </div>
+      </div>` : '';
+
   let bodyHTML = '';
 
   if (item.layout === 'horizontal') {
     bodyHTML = `
       <div class="container detail-h-top">
-        <div class="detail-h-media">
+        <div class="detail-h-media${isInstagram ? ' is-instagram' : ''}">
           <div class="${videoWrapClass}">${videoHTML}</div>
         </div>
-        <div class="detail-info">
-          <div class="cat">${item.categoryLabel.toUpperCase()}</div>
-          <h1>${item.title}</h1>
-          <div class="subtitle">${item.subtitle || ''}</div>
-          <div class="desc">${item.description}</div>
-          <div class="meta-table">
-            <div><b>CLIENT</b><span>${item.client}</span></div>
-            <div><b>TYPE</b><span>${item.typeLabel}</span></div>
-            <div><b>PERIOD</b><span>${item.period}</span></div>
-            <div><b>ROLE</b><span>${item.role}</span></div>
-          </div>
-          <div class="tag-list">${tagsHTML}</div>
+        <div class="detail-info detail-h-info">
+          <div>${infoHTML}</div>
+          <div>${metaHTML}</div>
         </div>
       </div>
 
       ${item.story ? `
       <div class="detail-block container">
-        <div class="detail-block-head"><span class="n">01</span><span class="label">PROJECT STORY</span></div>
+        <div class="detail-block-head"><span class="n">${nextNo()}</span><span class="label">PROJECT STORY</span></div>
         <div class="detail-block-grid">
           <h2>${item.story.title}</h2>
           ${item.story.points.map(p => `
             <div class="detail-story-point">
-              <div class="icon">${p.icon}</div>
+              <div class="icon">${iconSVG(p.icon)}</div>
               <h4>${p.title}</h4>
               <p>${p.desc}</p>
             </div>`).join('')}
@@ -236,7 +264,7 @@ const isInstagram = isInstagramEmbed(item.videoEmbed);
 
       ${item.process ? `
       <div class="detail-block container">
-        <div class="detail-block-head"><span class="n">02</span><span class="label">PROCESS</span></div>
+        <div class="detail-block-head"><span class="n">${nextNo()}</span><span class="label">PROCESS</span></div>
         <h2 style="font-size:26px;font-weight:800;">기획부터 납품까지,<br>하나의 흐름으로.</h2>
         <div class="process-timeline">
           ${item.process.map(p => `
@@ -248,6 +276,8 @@ const isInstagram = isInstagramEmbed(item.videoEmbed);
             </div>`).join('')}
         </div>
       </div>` : ''}
+
+      ${stillsBlock()}
     `;
   } else {
     // vertical
@@ -256,24 +286,12 @@ const isInstagram = isInstagramEmbed(item.videoEmbed);
         <div class="detail-v-media">
           <div class="${videoWrapClass}">${videoHTML}</div>
         </div>
-        <div class="detail-info">
-          <div class="cat">${item.categoryLabel.toUpperCase()}</div>
-          <h1>${item.title}</h1>
-          <div class="subtitle">${item.subtitle || ''}</div>
-          <div class="desc">${item.description}</div>
-          <div class="meta-table">
-            <div><b>CLIENT</b><span>${item.client}</span></div>
-            <div><b>TYPE</b><span>${item.typeLabel}</span></div>
-            <div><b>PERIOD</b><span>${item.period}</span></div>
-            <div><b>ROLE</b><span>${item.role}</span></div>
-          </div>
-          <div class="tag-list">${tagsHTML}</div>
-        </div>
+        <div class="detail-info">${infoHTML}${metaHTML}</div>
       </div>
 
       ${item.message ? `
       <div class="v-message-section container">
-        <div><div class="cat" style="margin-bottom:0;">01</div><div style="font-size:12px;color:var(--c-gray-500);">PROJECT OVERVIEW</div></div>
+        <div><div class="cat" style="margin-bottom:0;">${nextNo()}</div><div style="font-size:12px;color:var(--c-gray-500);">PROJECT OVERVIEW</div></div>
         <div>
           <h2 style="margin-bottom:16px;">${item.message.title}</h2>
           <p>${item.message.text}</p>
@@ -285,11 +303,13 @@ const isInstagram = isInstagramEmbed(item.videoEmbed);
       <div class="keypoints container">
         ${item.keypoints.map(k => `
           <div class="keypoint">
-            <div class="icon">${k.icon}</div>
+            <div class="icon">${iconSVG(k.icon)}</div>
             <h4>${k.title}</h4>
             <p>${k.desc}</p>
           </div>`).join('')}
       </div>` : ''}
+
+      ${stillsBlock()}
     `;
   }
 
@@ -298,7 +318,7 @@ const isInstagram = isInstagramEmbed(item.videoEmbed);
   const relatedHTML = `
     <div class="container" style="padding-top:56px;padding-bottom:100px;border-top:1px solid rgba(255,255,255,.1);">
       <div class="related-head">
-        <div class="detail-block-head" style="margin:0;"><span class="n">${item.layout === 'horizontal' ? '03' : '03'}</span><span class="label">OTHER PROJECTS</span></div>
+        <div class="detail-block-head" style="margin:0;"><span class="n">${nextNo()}</span><span class="label">OTHER PROJECTS</span></div>
       </div>
       <div class="related-grid">
         ${related.map(r => `

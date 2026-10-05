@@ -164,10 +164,15 @@ function showModal(message) {
 const REVEAL_TARGETS = [
   '.section .eyebrow', '.section .section-title', '.section .section-desc',
   '.about-preview-img', '.service-card', '.pf-card', '.flow-step',
+  '.split-section > *', '.value-item', '.founder-text', '.custom-item',
+  '.featured-pf > *', '.detail-block', '.v-message-section', '.keypoint',
+  '.related-card', '.detail-stills',
   '.cta-left', '.cta-right',
 ];
 
 function initReveal() {
+  if (initReveal.done) return;
+  initReveal.done = true;
   if (!('IntersectionObserver' in window)) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
@@ -189,3 +194,42 @@ function initReveal() {
     io.observe(el);
   });
 }
+
+// 모든 페이지에서 자동 실행: 각 페이지가 DOMContentLoaded 에서
+// 콘텐츠(포트폴리오 목록, 상세 등)를 다 그린 뒤에 실행되도록 한 박자 늦춥니다.
+document.addEventListener('DOMContentLoaded', () => setTimeout(initReveal, 0));
+
+/* ---------------------------------------------------------
+   선 아이콘 (이모지 대신 사용)
+   - 포트폴리오 데이터의 icon 값에 아래 이름을 적으면 아이콘으로 표시됩니다.
+     예) icon: 'users'
+   - 목록에 없는 값(이모지 등)을 적으면 그 글자가 그대로 보입니다.
+--------------------------------------------------------- */
+const ICON_PATHS = {
+  users:     '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  play:      '<rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9l5 3-5 3z"/>',
+  school:    '<path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2.5 9 2.5 12 0v-5"/>',
+  book:      '<path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/>',
+  music:     '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>',
+  festival:  '<path d="M3 21h18"/><path d="M5 21V10l7-6 7 6v11"/><path d="M10 21v-5h4v5"/><path d="M12 4V2"/>',
+  sparkles:  '<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.7 1.8L21.5 17.5l-1.8.7L19 20l-.7-1.8-1.8-.7 1.8-.7z"/>',
+  bread:     '<path d="M5 20h14a1 1 0 0 0 1-1v-6a3 3 0 0 0 1-2.3C21 7.5 16.97 5 12 5S3 7.5 3 10.7A3 3 0 0 0 4 13v6a1 1 0 0 0 1 1z"/><path d="M9 9l1 3M15 9l-1 3"/>',
+  clapper:   '<rect x="3" y="10" width="18" height="11" rx="1.5"/><path d="M3 10l1.5-5.5 16 0L21 10"/><path d="M8.5 4.5 7 10M14 4.5 12.5 10M19.5 4.5 18 10"/>',
+  pin:       '<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/>',
+  bulb:      '<path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/>',
+  phone:     '<rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/>',
+  calendar:  '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+  video:     '<rect x="2" y="6" width="14" height="12" rx="2"/><path d="M22 8l-6 4 6 4z"/>',
+  camera:    '<path d="M3 8a1 1 0 0 1 1-1h3l2-3h6l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><circle cx="12" cy="13" r="4"/>',
+};
+
+function iconSVG(name) {
+  const paths = ICON_PATHS[name];
+  if (!paths) return name || '';
+  return `<svg class="line-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+}
+
+// HTML 안의 <i data-icon="이름"></i> 자리를 아이콘으로 바꿔줍니다. (about, service 페이지)
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('[data-icon]').forEach(el => { el.outerHTML = iconSVG(el.dataset.icon); });
+});
