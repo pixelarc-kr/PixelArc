@@ -166,7 +166,7 @@ const REVEAL_TARGETS = [
   '.about-preview-img', '.service-card', '.pf-card', '.flow-step',
   '.split-section > *', '.value-item', '.founder-text > *', '.custom-item',
   '.featured-pf > *', '.detail-block', '.v-message-section', '.keypoint',
-  '.related-card', '.detail-stills',
+  '.related-card', '.detail-stills', '.estimate-card', '.estimate-cta', '.faq-item',
   '.cta-left', '.cta-right',
 ];
 
@@ -220,6 +220,7 @@ const ICON_PATHS = {
   phone:     '<rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/>',
   calendar:  '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
   video:     '<rect x="2" y="6" width="14" height="12" rx="2"/><path d="M22 8l-6 4 6 4z"/>',
+  revise:    '<path d="M3 12a9 9 0 0 1 15.5-6.3L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.3L3 16"/><path d="M3 21v-5h5"/>',
   camera:    '<path d="M3 8a1 1 0 0 1 1-1h3l2-3h6l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><circle cx="12" cy="13" r="4"/>',
 };
 
