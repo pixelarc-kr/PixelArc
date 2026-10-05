@@ -164,7 +164,7 @@ function showModal(message) {
 const REVEAL_TARGETS = [
   '.section .eyebrow', '.section .section-title', '.section .section-desc',
   '.about-preview-img', '.service-card', '.pf-card', '.flow-step',
-  '.split-section > *', '.value-item', '.founder-text', '.custom-item',
+  '.split-section > *', '.value-item', '.founder-text > *', '.custom-item',
   '.featured-pf > *', '.detail-block', '.v-message-section', '.keypoint',
   '.related-card', '.detail-stills',
   '.cta-left', '.cta-right',
