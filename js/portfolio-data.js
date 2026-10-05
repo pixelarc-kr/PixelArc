@@ -27,8 +27,15 @@
    client        : 클라이언트명 / typeLabel : 제작 형태 / period : 제작 기간 / role : 담당 역할
    description   : 상세 소개 문구
 
+   stills        : (선택) 영상 속 장면 캡처 이미지 경로 배열. 상세페이지에 스틸컷 갤러리로 표시됩니다.
+                   예) stills: ['images/portfolio/daegu-tiktaka-1.jpg', 'images/portfolio/daegu-tiktaka-2.jpg']
+                   3개 또는 6개를 권장하며, 비워두거나 적지 않으면 갤러리가 보이지 않습니다.
+
    ---- layout이 'horizontal' 일 때만 사용하는 필드 ----
    story    : { title, text, points:[{icon,title,desc}, ...] }  (points 3개 권장)
+              icon 값은 js/common.js 의 ICON_PATHS 에 있는 이름을 적으면 선 아이콘으로 보입니다.
+              (users, play, school, book, music, festival, sparkles, bread, clapper, pin,
+               bulb, phone, calendar, video, camera)
    process  : [ {step:'01', title:'기획', items:['..','..','..']}, ... ]  (4단계 권장)
 
    ---- layout이 'vertical' 일 때만 사용하는 필드 ----
@@ -57,9 +64,9 @@ const portfolioList = [
   //     title: '맛과 분위기를 한 편에 담다.',
   //     text: '',
   //     points: [
-  //       { icon: '🍽', title: '메뉴 중심 연출', desc: '시그니처 메뉴가 돋보이는 촬영 구도와 라이팅' },
-  //       { icon: '🎥', title: '공간감 있는 촬영', desc: '매장의 분위기를 그대로 전달하는 와이드 샷 활용' },
-  //       { icon: '✨', title: '감각적인 컬러 톤', desc: '브랜드 톤에 맞춘 색보정으로 완성도 있는 영상 제작' }
+  //       { icon: 'festival', title: '메뉴 중심 연출', desc: '시그니처 메뉴가 돋보이는 촬영 구도와 라이팅' },
+  //       { icon: 'video', title: '공간감 있는 촬영', desc: '매장의 분위기를 그대로 전달하는 와이드 샷 활용' },
+  //       { icon: 'sparkles', title: '감각적인 컬러 톤', desc: '브랜드 톤에 맞춘 색보정으로 완성도 있는 영상 제작' }
   //     ]
   //   },
   //   process: [
@@ -90,9 +97,9 @@ const portfolioList = [
     title: '만화 속 장면처럼,<br>축제를 펴쳐내다.',
     text: '',
     points: [
-      { icon: '📖', title: '만화적 비주얼 콘셉트', desc: '만화 원고와 프레임을 활용해 축제의 정체성을 시각적으로 표현' },
-      { icon: '🎶', title: '리듬감 있는 모션그래픽', desc: '짧은 러닝타임 안에서 다양한 프로그램을 빠르고 자연스럽게 전개' },
-      { icon: '🎪', title: '행사 정보의 명확한 전달', desc: '공연·체험·토크 등 주요 프로그램을 직관적으로 구성' }
+      { icon: 'book', title: '만화적 비주얼 콘셉트', desc: '만화 원고와 프레임을 활용해 축제의 정체성을 시각적으로 표현' },
+      { icon: 'music', title: '리듬감 있는 모션그래픽', desc: '짧은 러닝타임 안에서 다양한 프로그램을 빠르고 자연스럽게 전개' },
+      { icon: 'festival', title: '행사 정보의 명확한 전달', desc: '공연·체험·토크 등 주요 프로그램을 직관적으로 구성' }
     ]
   },
     process: [
@@ -122,9 +129,9 @@ const portfolioList = [
       title: '입시의 고민이 콘텐츠가 되는 순간.',
       text: '',
       points: [
-        { icon: '👥', title: '입시생에 맞춘 기획', desc: '입시 준비·학과 선택·면접 등 예비 입시생이 궁금해할 주제를 중심으로 구성' },
-        { icon: '▶', title: '웹예능형 포맷', desc: '토크와 미니게임을 결합해 정보성과 재미를 자연스럽게 연결' },
-        { icon: '🏫', title: '대학 브랜드 친밀도 강화', desc: '재학생의 솔직한 이야기와 자연스러운 케미를 통해 친근한 대학 이미지 전달' }
+        { icon: 'users', title: '입시생에 맞춘 기획', desc: '입시 준비·학과 선택·면접 등 예비 입시생이 궁금해할 주제를 중심으로 구성' },
+        { icon: 'play', title: '웹예능형 포맷', desc: '토크와 미니게임을 결합해 정보성과 재미를 자연스럽게 연결' },
+        { icon: 'school', title: '대학 브랜드 친밀도 강화', desc: '재학생의 솔직한 이야기와 자연스러운 케미를 통해 친근한 대학 이미지 전달' }
       ]
     },
     process: [
@@ -156,9 +163,9 @@ const portfolioList = [
       sideLabels: ['MOOD', 'PLAYFUL', 'VIBRANT', 'FESTIVE']
     },
     keypoints: [
-      { icon: '🥨', title: 'AI 캐릭터 비주얼', desc: '빵을 모티브로 한 캐릭터를 AI로 제작해 축제만의 유쾌한 이미지 구현' },
-      { icon: '✨', title: '역동적인 숏폼 연출', desc: '짧은 시간 안에 시선을 끌 수 있도록 움직임과 장면 전환을 빠르게 구성' },
-      { icon: '🎪', title: '축제 분위기 전달', desc: '밝고 생동감 있는 비주얼을 통해 빵축제의 즐거움과 현장감을 표현' }
+      { icon: 'bread', title: 'AI 캐릭터 비주얼', desc: '빵을 모티브로 한 캐릭터를 AI로 제작해 축제만의 유쾌한 이미지 구현' },
+      { icon: 'sparkles', title: '역동적인 숏폼 연출', desc: '짧은 시간 안에 시선을 끌 수 있도록 움직임과 장면 전환을 빠르게 구성' },
+      { icon: 'festival', title: '축제 분위기 전달', desc: '밝고 생동감 있는 비주얼을 통해 빵축제의 즐거움과 현장감을 표현' }
     ]
   },
   {
@@ -181,9 +188,9 @@ const portfolioList = [
     title: '눈으로 먼저 맛보는,<br>점촌점빵길 빵축제.',
     text: '',
     points: [
-      { icon: '🥖', title: '먹거리 중심의 시각 구성', desc: '다양한 빵과 먹거리의 매력이 직관적으로 드러나도록 장면 구성' },
-      { icon: '🎬', title: '빠르고 경쾌한 편집', desc: '짧은 러닝타임 안에서 축제의 활기를 전달하는 템포감 있는 편집' },
-      { icon: '📍', title: '축제 정보 전달', desc: '행사 장소와 주요 볼거리를 자연스럽게 연결해 관람객의 관심 유도' }
+      { icon: 'bread', title: '먹거리 중심의 시각 구성', desc: '다양한 빵과 먹거리의 매력이 직관적으로 드러나도록 장면 구성' },
+      { icon: 'clapper', title: '빠르고 경쾌한 편집', desc: '짧은 러닝타임 안에서 축제의 활기를 전달하는 템포감 있는 편집' },
+      { icon: 'pin', title: '축제 정보 전달', desc: '행사 장소와 주요 볼거리를 자연스럽게 연결해 관람객의 관심 유도' }
     ]
   },
     process: [
