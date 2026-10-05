@@ -452,12 +452,14 @@ input, textarea{ font-family:inherit; }
   padding:60px 24px;
 }
 .hero-content h1{
+  word-break:keep-all;
   font-size:48px;
   font-weight:800;
   line-height:1.35;
   margin:18px 0 22px;
 }
 .hero-content p{
+  word-break:keep-all;
   color:var(--c-gray-400);
   font-size:16px;
   line-height:1.8;
@@ -521,30 +523,50 @@ input, textarea{ font-family:inherit; }
 }
 @media(max-width:560px){ .home-pf-bottom-row{ grid-template-columns:1fr; } }
 
-.why-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:32px; margin-top:52px; }
-.why-item .num{ color:var(--c-accent-dark); font-weight:800; font-size:15px; margin-bottom:14px; }
-.why-item h3{ font-size:18px; font-weight:800; margin-bottom:10px; }
-.why-item p{ font-size:14px; color:var(--c-gray-700); line-height:1.7; }
-@media(max-width:900px){ .why-grid{ grid-template-columns:1fr 1fr; } }
-@media(max-width:560px){ .why-grid{ grid-template-columns:1fr; } }
-
-.process-head{ display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:56px; flex-wrap:wrap; gap:16px; }
-.process-list{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; }
-.process-item{ text-align:center; flex:1; min-width:110px; }
-.process-circle{
-  width:64px;height:64px; border-radius:50%;
-  background:var(--c-black); color:#fff;
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  margin:0 auto 16px; font-size:11px; font-weight:700;
+/* ---------- 선택 이유 + 진행 프로세스 (단계별 타임라인) ---------- */
+.flow{
+  list-style:none;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:28px;
+  position:relative;
 }
-.process-item h4{ font-size:15px; font-weight:800; margin-bottom:6px; }
-.process-item p{ font-size:12px; color:var(--c-gray-700); }
-.process-arrow{ align-self:center; color:var(--c-gray-500); font-size:18px; padding-top:16px; }
-@media(max-width:760px){
-  .process-list{ flex-direction:column; align-items:stretch; }
-  .process-arrow{ display:none; }
-  .process-item{ display:flex; align-items:center; gap:16px; text-align:left; }
-  .process-circle{ margin:0; flex-shrink:0; }
+/* 단계들을 잇는 가로선 */
+.flow::before{
+  content:'';
+  position:absolute; left:0; right:0; top:44px;
+  height:1px; background:var(--c-gray-300);
+}
+.flow-marker{ position:relative; height:52px; margin-bottom:28px; }
+.flow-num{
+  display:block;
+  font-size:28px; font-weight:800; line-height:1;
+  color:var(--c-gray-300);
+  transition:color .3s ease;
+}
+.flow-dot{
+  position:absolute; left:0; top:38px;
+  width:13px; height:13px; border-radius:50%;
+  background:var(--c-gray-100);
+  border:2px solid var(--c-accent-dark);
+  transition:background .3s ease, transform .3s ease;
+}
+.flow-stage{
+  font-size:12px; font-weight:700; letter-spacing:.12em;
+  color:var(--c-accent-dark); margin-bottom:8px;
+}
+.flow-step h3{ font-size:18px; font-weight:800; margin-bottom:10px; word-break:keep-all; }
+.flow-step p{ font-size:14px; color:var(--c-gray-700); line-height:1.7; word-break:keep-all; }
+.flow-step:hover .flow-num{ color:var(--c-text-dark); }
+.flow-step:hover .flow-dot{ background:var(--c-accent-dark); transform:scale(1.25); }
+@media(max-width:900px){
+  .flow{ grid-template-columns:1fr; gap:0; padding-left:36px; }
+  .flow::before{ left:6px; right:auto; top:8px; bottom:8px; width:1px; height:auto; }
+  .flow-step{ position:relative; padding-bottom:36px; }
+  .flow-step:last-child{ padding-bottom:0; }
+  .flow-marker{ position:static; height:auto; margin-bottom:6px; }
+  .flow-num{ font-size:22px; }
+  .flow-dot{ left:-36px; top:6px; }
 }
 
 /* =========================================================
@@ -843,3 +865,28 @@ input, textarea{ font-family:inherit; }
 .modal-box{ background:#fff; color:#14161a; border-radius:10px; padding:32px; max-width:360px; width:100%; text-align:center; }
 .modal-box p{ font-size:15px; line-height:1.7; margin:16px 0 24px; }
 .modal-box button{ background:#14161a; color:#fff; padding:12px 28px; border-radius:6px; font-weight:700; font-size:14px; }
+
+/* =========================================================
+   모션: 히어로 등장 + 스크롤 등장 효과
+   - .reveal 클래스는 js/common.js 의 initReveal()이 붙입니다.
+     (JS가 없으면 클래스가 붙지 않으므로 콘텐츠는 그대로 보입니다)
+   - 시스템에서 '동작 줄이기'를 켠 사용자에게는 적용되지 않습니다.
+   ========================================================= */
+@media (prefers-reduced-motion: no-preference){
+  .hero-content > *{ opacity:0; animation:fadeUp .9s cubic-bezier(.2,.7,.2,1) forwards; }
+  .hero-content > :nth-child(1){ animation-delay:.15s; }
+  .hero-content > :nth-child(2){ animation-delay:.3s; }
+  .hero-content > :nth-child(3){ animation-delay:.45s; }
+  .hero-content > :nth-child(4){ animation-delay:.6s; }
+  .hero-bg img{ animation:heroZoom 14s ease-out forwards; }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(32px);
+    transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);
+    transition-delay:var(--reveal-delay, 0s);
+  }
+  .reveal.is-visible{ opacity:1; transform:none; }
+}
+@keyframes fadeUp{ from{ opacity:0; transform:translateY(24px); } to{ opacity:1; transform:none; } }
+@keyframes heroZoom{ from{ transform:scale(1.08); } to{ transform:scale(1); } }
