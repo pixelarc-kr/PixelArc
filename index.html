@@ -38,6 +38,20 @@
   <div class="scroll-down">SCROLL DOWN</div>
 </section>
 
+<!-- ================= 포트폴리오 미리보기 ================= -->
+<section class="section section-black">
+  <div class="container">
+    <div class="home-pf-head">
+      <div>
+        <div class="eyebrow">PORTFOLIO</div>
+        <h2 class="section-title">주요 작업 포트폴리오</h2>
+      </div>
+      <a href="portfolio.html" class="home-pf-link">전체 포트폴리오 보기 →</a>
+    </div>
+    <div id="home-portfolio-grid"><!-- JS로 자동 렌더링 --></div>
+  </div>
+</section>
+
 <!-- ================= 회사 소개 ================= -->
 <section class="section section-light">
   <div class="container about-preview">
@@ -92,60 +106,48 @@
   </div>
 </section>
 
-<!-- ================= 포트폴리오 미리보기 ================= -->
-<section class="section section-black">
-  <div class="container">
-    <div class="home-pf-head">
-      <div>
-        <div class="eyebrow">PORTFOLIO</div>
-        <h2 class="section-title">주요 작업 포트폴리오</h2>
-      </div>
-      <a href="portfolio.html" class="home-pf-link">전체 포트폴리오 보기 →</a>
-    </div>
-    <div id="home-portfolio-grid"><!-- JS로 자동 렌더링 --></div>
-  </div>
-</section>
-
-<!-- ================= 선택 이유 ================= -->
+<!-- ================= 선택 이유 + 진행 프로세스 ================= -->
 <section class="section section-light">
   <div class="container">
     <div class="service-head">
       <div>
-        <div class="eyebrow">WHY PIXELARC</div>
+        <div class="eyebrow">HOW WE WORK</div>
         <h2 class="section-title">픽셀아크가<br>선택받는 이유</h2>
       </div>
-      <p class="section-desc desc-right">단순히 영상을 만드는 것이 아닌,<br>브랜드의 가치를 생각하는 파트너가 되겠습니다.</p>
+      <p class="section-desc desc-right">상담부터 납품까지,<br>모든 단계에 픽셀아크만의 기준이 있습니다.</p>
     </div>
-    <div class="why-grid">
-      <div class="why-item"><div class="num">01</div><h3>브랜드 맞춤 기획</h3><p>브랜드의 아이덴티티와 목표를 분석해 가장 효과적인 스토리를 제안합니다.</p></div>
-      <div class="why-item"><div class="num">02</div><h3>현장 중심 촬영</h3><p>다양한 환경과 상황에 맞는 전문 장비와 인력으로 촬영합니다.</p></div>
-      <div class="why-item"><div class="num">03</div><h3>몰입감 있는 편집</h3><p>트렌디한 연출과 세련된 편집으로 메시지를 더 강렬하게 전달합니다.</p></div>
-      <div class="why-item"><div class="num">04</div><h3>일관된 커뮤니케이션</h3><p>기획부터 납품까지, 항상 열린 소통으로 함께합니다.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 진행 프로세스 ================= -->
-<section class="section section-light" style="padding-top:0;">
-  <div class="container">
-    <div class="process-head">
-      <div>
-        <div class="eyebrow">PROCESS</div>
-        <h2 class="section-title">진행 프로세스</h2>
-      </div>
-      <p class="section-desc desc-right">체계적인 프로세스로<br>좋은 결과물을 만들어갑니다.</p>
-    </div>
-    <div class="process-list">
-      <div class="process-item"><div class="process-circle">01<br>상담</div><h4>상담</h4><p>제작 목적과 방향을 함께 논의합니다.<br>(예산, 레퍼런스 등)</p></div>
-      <div class="process-arrow">→</div>
-      <div class="process-item"><div class="process-circle">02<br>기획</div><h4>기획</h4><p>콘셉트, 스토리보드, 일정 등<br>세부 기획을 진행합니다.</p></div>
-      <div class="process-arrow">→</div>
-      <div class="process-item"><div class="process-circle">03<br>촬영</div><h4>촬영</h4><p>현장 촬영 및<br>데이터 수집을 진행합니다.</p></div>
-      <div class="process-arrow">→</div>
-      <div class="process-item"><div class="process-circle">04<br>편집</div><h4>편집</h4><p>리퀘스트 확인 후<br>최종 편집을 진행합니다.</p></div>
-      <div class="process-arrow">→</div>
-      <div class="process-item"><div class="process-circle">05<br>납품</div><h4>납품</h4><p>최종본을 전달하고<br>프로젝트를 마무리합니다.</p></div>
-    </div>
+    <ol class="flow">
+      <li class="flow-step">
+        <div class="flow-marker"><span class="flow-num">01</span><span class="flow-dot"></span></div>
+        <div class="flow-stage">상담</div>
+        <h3>일관된 커뮤니케이션</h3>
+        <p>제작 목적과 예산, 레퍼런스를 함께 정리합니다. 첫 상담부터 납품까지 열린 소통으로 함께합니다.</p>
+      </li>
+      <li class="flow-step">
+        <div class="flow-marker"><span class="flow-num">02</span><span class="flow-dot"></span></div>
+        <div class="flow-stage">기획</div>
+        <h3>브랜드 맞춤 기획</h3>
+        <p>브랜드의 아이덴티티와 목표를 분석해 콘셉트, 스토리보드, 일정까지 가장 효과적인 스토리를 설계합니다.</p>
+      </li>
+      <li class="flow-step">
+        <div class="flow-marker"><span class="flow-num">03</span><span class="flow-dot"></span></div>
+        <div class="flow-stage">촬영</div>
+        <h3>현장 중심 촬영</h3>
+        <p>다양한 환경과 상황에 맞는 전문 장비와 인력으로 현장의 분위기와 디테일을 담아냅니다.</p>
+      </li>
+      <li class="flow-step">
+        <div class="flow-marker"><span class="flow-num">04</span><span class="flow-dot"></span></div>
+        <div class="flow-stage">편집</div>
+        <h3>몰입감 있는 편집</h3>
+        <p>트렌디한 연출과 세련된 편집으로 메시지를 더 강렬하게 전달하고, 리퀘스트를 반영해 완성합니다.</p>
+      </li>
+      <li class="flow-step">
+        <div class="flow-marker"><span class="flow-num">05</span><span class="flow-dot"></span></div>
+        <div class="flow-stage">납품</div>
+        <h3>끝까지 책임지는 마무리</h3>
+        <p>최종본을 전달하고 프로젝트를 마무리합니다.</p>
+      </li>
+    </ol>
   </div>
 </section>
 
@@ -159,7 +161,10 @@
 <script src="js/portfolio-data.js"></script>
 <script src="js/portfolio.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', renderHomePortfolio);
+  document.addEventListener('DOMContentLoaded', () => {
+    renderHomePortfolio();
+    initReveal();
+  });
 </script>
 </body>
 </html>

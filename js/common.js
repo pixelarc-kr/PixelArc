@@ -154,3 +154,38 @@ function showModal(message) {
   document.getElementById('commonModalMsg').textContent = message;
   overlay.classList.add('active');
 }
+
+/* ---------------------------------------------------------
+   스크롤 등장 효과
+   사용법: 콘텐츠를 그린 뒤 initReveal() 호출 (index.html 참고)
+   화면에 들어오는 요소가 아래에서 부드럽게 나타나며,
+   같은 줄의 카드들은 순서대로 조금씩 늦게 나타납니다.
+--------------------------------------------------------- */
+const REVEAL_TARGETS = [
+  '.section .eyebrow', '.section .section-title', '.section .section-desc',
+  '.about-preview-img', '.service-card', '.pf-card', '.flow-step',
+  '.cta-left', '.cta-right',
+];
+
+function initReveal() {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const els = document.querySelectorAll(REVEAL_TARGETS.join(','));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  els.forEach(el => {
+    // 같은 부모 안의 카드끼리는 0.1초씩 차례로 등장
+    const siblings = [...el.parentElement.children].filter(c => c.matches(REVEAL_TARGETS.join(',')));
+    const order = Math.max(0, siblings.indexOf(el));
+    el.style.setProperty('--reveal-delay', `${Math.min(order, 5) * 0.1}s`);
+    el.classList.add('reveal');
+    io.observe(el);
+  });
+}
