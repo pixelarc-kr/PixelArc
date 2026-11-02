@@ -113,7 +113,7 @@ const portfolioList = [
     thumbnail: 'images/portfolio/daegu-tiktaka.jpg',
     videoEmbed: '<iframe src="https://www.youtube.com/embed/MxKNdK0ZUvU?si=GhIgY_PPmqyhCBpR" allowfullscreen></iframe>',
     tags: ['#유튜브콘텐츠', '#웹예능', '#대학홍보', '#입시'],
-    client: '대구보건대학교',
+    client: '블룸',
     typeLabel: 'YouTube Web Variety',
     period: '2026.07 - 2026.09',
     role: '기획 / 촬영 / 편집',
