@@ -76,6 +76,38 @@ const portfolioList = [
   //     { step: '04', title: '납품', items: ['본편 1편', '숏폼 버전(선택)', '최종 납품 파일'] }
   //   ]
   // },
+  // {
+  //   id: 'daegu-2026interview',
+  //   title: '대구보건대학교 면접 행사 스케치',
+  //   subtitle: '예비 입시생의 고민을 유쾌하게 풀어낸 대학 홍보 웹예능',
+  //   date: '2026-09-18',
+  //   category: 'youtube',
+  //   categoryLabel: '유튜브 웹예능',
+  //   layout: 'horizontal',
+  //   thumbnail: 'images/portfolio/daegu-tiktaka.jpg',
+  //   videoEmbed: '<iframe src="https://www.youtube.com/embed/MxKNdK0ZUvU?si=GhIgY_PPmqyhCBpR" allowfullscreen></iframe>',
+  //   tags: ['#유튜브콘텐츠', '#웹예능', '#대학홍보', '#입시'],
+  //   client: '블룸',
+  //   typeLabel: 'YouTube Web Variety',
+  //   period: '2026.07 - 2026.09',
+  //   role: '기획 / 촬영 / 편집',
+  //   description: '입시 준비부터 학과 선택, 면접까지 예비 입시생들이 궁금해할 이야기를<br>재학생들의 솔직한 경험과 게임형 콘텐츠로 풀어냈습니다.',
+  //   story: {
+  //     title: '입시의 고민이 콘텐츠가 되는 순간.',
+  //     text: '',
+  //     points: [
+  //       { icon: 'users', title: '입시생에 맞춘 기획', desc: '입시 준비·학과 선택·면접 등 예비 입시생이 궁금해할 주제를 중심으로 구성' },
+  //       { icon: 'play', title: '웹예능형 포맷', desc: '토크와 미니게임을 결합해 정보성과 재미를 자연스럽게 연결' },
+  //       { icon: 'school', title: '대학 브랜드 친밀도 강화', desc: '재학생의 솔직한 이야기와 자연스러운 케미를 통해 친근한 대학 이미지 전달' }
+  //     ]
+  //   },
+  //   process: [
+  //     { step: '01', title: '기획', items: ['콘텐츠 기획', '회차별 주제 및 구성'] },
+  //     { step: '02', title: '촬영', items: ['4대 카메라 멀티캠 촬영', '출연자 오디오 수음', '현장 디렉팅'] },
+  //     { step: '03', title: '편집', items: ['멀티캠 컷 편집', '자막·예능 효과·사운드 디자인', '컬러 보정 및 최종 편집'] },
+  //     { step: '04', title: '납품', items: ['본편 5편', '회차별 숏폼 콘텐츠', '썸네일 및 최종 업로드 파일'] }
+  //   ]
+  // },
   {
     id: 'gyeongsan-festival',
     title: '2026 경산만화축제 홍보영상',
