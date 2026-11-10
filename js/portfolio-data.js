@@ -45,42 +45,10 @@
 
 const portfolioList = [
   // {
-  //   id: 'restaurant-promo',
-  //   title: '소보양탕 사천점 홍보영상',
-  //   subtitle: '',
-  //   date: '2026-09-29',
-  //   category: 'promo',
-  //   categoryLabel: '식당 홍보영상',
-  //   layout: 'horizontal',
-  //   thumbnail: '',
-  //   videoEmbed: '',
-  //   tags: ['#기업홍보', '#브랜드필름', '#요식업'],
-  //   client: '비공개',
-  //   typeLabel: 'Promotion Video',
-  //   period: '2025.02',
-  //   role: '기획 / 촬영 / 편집',
-  //   description: '매장의 분위기와 메뉴의 매력을 효과적으로 전달하는 홍보영상입니다.',
-  //   story: {
-  //     title: '맛과 분위기를 한 편에 담다.',
-  //     text: '',
-  //     points: [
-  //       { icon: 'festival', title: '메뉴 중심 연출', desc: '시그니처 메뉴가 돋보이는 촬영 구도와 라이팅' },
-  //       { icon: 'video', title: '공간감 있는 촬영', desc: '매장의 분위기를 그대로 전달하는 와이드 샷 활용' },
-  //       { icon: 'sparkles', title: '감각적인 컬러 톤', desc: '브랜드 톤에 맞춘 색보정으로 완성도 있는 영상 제작' }
-  //     ]
-  //   },
-  //   process: [
-  //     { step: '01', title: '기획', items: ['콘셉트 회의', '촬영 콘티 구성', '메뉴 선정'] },
-  //     { step: '02', title: '촬영', items: ['매장 촬영', '메뉴 클로즈업', '고객 인터뷰(선택)'] },
-  //     { step: '03', title: '편집', items: ['컷 편집', '색보정', 'BGM 및 자막'] },
-  //     { step: '04', title: '납품', items: ['본편 1편', '숏폼 버전(선택)', '최종 납품 파일'] }
-  //   ]
-  // },
-  // {
   //   id: 'daegu-2026interview',
   //   title: '대구보건대학교 면접 행사 스케치',
   //   subtitle: '예비 입시생의 고민을 유쾌하게 풀어낸 대학 홍보 웹예능',
-  //   date: '2026-09-18',
+  //   date: '2026-11-03',
   //   category: 'youtube',
   //   categoryLabel: '유튜브 웹예능',
   //   layout: 'horizontal',
@@ -126,7 +94,7 @@ const portfolioList = [
     role: '기획 / 디자인 / 모션그래픽 / 편집',
     description: '한 편의 만화를 펼쳐보는 듯한 연출로, 경산만화축제의 다양한 볼거리와 즐길 거리를 담아냈습니다.',
     story: {
-    title: '만화 속 장면처럼,<br>축제를 펴쳐내다.',
+    title: '만화 속 장면처럼,<br>축제를 펼쳐내다.',
     text: '',
     points: [
       { icon: 'book', title: '만화적 비주얼 콘셉트', desc: '만화 원고와 프레임을 활용해 축제의 정체성을 시각적으로 표현' },
